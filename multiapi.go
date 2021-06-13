@@ -11,9 +11,7 @@ import (
 const apiUrl = "https://api.itayki.com"
 
 func doRequest(url string) ([]byte, error) {
-	var res *http.Response
-	var err error
-	res, err = http.Get(url)
+	res, err := http.Get(url)
 	if err != nil {
 		return nil, err
 	}
