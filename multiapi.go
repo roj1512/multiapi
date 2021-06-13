@@ -33,9 +33,7 @@ func getUrl(path string, params map[string]string) string {
 			toReturn += key + "=" + url.QueryEscape(val) + "&"
 		}
 	}
-
-	fmt.Println(toReturn)
-
+	
 	return toReturn
 }
 
