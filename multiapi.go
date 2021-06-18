@@ -33,7 +33,7 @@ func getUrl(path string, params map[string]string) string {
 			toReturn += key + "=" + url.QueryEscape(val) + "&"
 		}
 	}
-	
+
 	return toReturn
 }
 
@@ -220,6 +220,22 @@ func GetPaste(paste string) (map[string]interface{}, error) {
 			"/get_paste",
 			map[string]string{
 				"paste": paste,
+			},
+		),
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	return unmarshal(body), nil
+}
+
+func YouTube(query string) (map[string]interface{}, error) {
+	body, err := doRequest(
+		getUrl(
+			"/youtube",
+			map[string]string{
+				"query": query,
 			},
 		),
 	)
